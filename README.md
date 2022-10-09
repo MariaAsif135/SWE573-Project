@@ -1,2 +1,2 @@
 # SWE573-Project
-All the project material and the given tasks will be put here. 
+This repository is created to include all the course related material that can be kept track of by the teacher and me.
