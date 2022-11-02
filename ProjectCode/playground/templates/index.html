@@ -1,13 +1,11 @@
-{% comment %} 
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'index.css' %}">
-</head>
+   </head>
 <body>
 
     {% for message in messages %}
@@ -19,43 +17,27 @@
     </div>
     {% endfor %}
 
-    <h3>Welcome to GeeksForGeeks!</h3>
+    <h3>Welcome!</h3>
+    <h3>Log In to your account!</h3>
+    <form method="post" action="/signin" class="mb-2">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" Required>
+        </div>
+        <div class="form-group">
+            <label for="pass1">Password</label>
+            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Your Password" Required>
+        </div>
 
 
-    {% if user.is_authenticated %}
-    <h3>Hello {{fname}}!</h3>
-    <h4>You're successfully logged in.</h4>
-    <button type="submit"><a href="signout">SignOut</a></button>
-    {% else %}
-    <button type="submit"><a href="signup">SignUp</a></button>
-    <br/>
-    <br/>
+    {% comment %} <button type="submit"><a href="signout">SignOut</a></button> {% endcomment %}
+
+   
+
     <button type="submit"><a href="signin">SignIn</a></button>
-    {% endif %}
+    <h3> Not a member? Join Now</h3>
+    <button type="submit"><a href="signup">SignUp</a></button>
+  </form>
 </body>
-</html> {% endcomment %}
-
-<div>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'index.css' %}">
-    <div class="home-container">
-      <div class="home-container1"><div class="home-header"></div></div>
-      <span class="home-welcome">Welcome</span>
-      <button class="home-button button">Sign In</button>
-      <button class="home-button1 button">Sign Up</button>
-      <div class="home-container2">
-        <span class="home-usernamelabel">Username:</span>
-        <span class="home-passwordlabel">Password:</span>
-        <span class="home-signuplabel">Don&apos;t have an account?</span>
-        <textarea
-          placeholder="Type your username here"
-          class="home-username textarea"
-        ></textarea>
-        <textarea
-          placeholder="Type your password here"
-          class="home-password textarea"
-        ></textarea>
-      </div>
-    </div>
-  </div>
-  
+</html>
