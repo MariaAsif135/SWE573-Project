@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.shortcuts import redirect
+
+
 def say_hello(request):
     x=1
     y=2
@@ -29,8 +30,10 @@ def signup(request):
         theuser.last_name= lname
 
         theuser.save()
+
         messages.success(request, "Account created Successfully")
-        return redirect('signin')
+        
+        return redirect('index')
 
     return render(request, 'signup.html')
 
