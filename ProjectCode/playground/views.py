@@ -2,13 +2,11 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
+import mysql.connector as sql
 
 
-def say_hello(request):
-    x=1
-    y=2
-    #return HttpResponse("Hello Maria's World")
-    return render(request, 'index.html', {'name':'Maria'})
+def homeinit(request):
+    return HttpResponse("Hello Maria's World")
 
 def home(request):
     return render(request, 'index.html', {'name':'HomePage'})
@@ -18,24 +16,17 @@ def signout(request):
 
 def signup(request):
     if request.method == "POST":
-        username = request.POST['username']
-        fname = request.POST['fname']
-        lname = request.POST['lname']
+        m=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb",auth_plugin='mysql_native_password')
+        cursor = m.cursor()
+        fname = request.POST['first_name']
+        lname = request.POST['last_name']
         email = request.POST['email']
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass2']
+        pass1 = request.POST['password']
 
-        theuser = User.object.create_user(username,email, pass1)
-        theuser.first_name= fname
-        theuser.last_name= lname
-
-        theuser.save()
-
-        messages.success(request, "Account created Successfully")
-        
-        return redirect('index')
-
-    return render(request, 'signup.html')
+        c= "insert into users Values('{}','{}','{}','{}')".format(fname,lname,email,pass1)
+        cursor.execute(c)
+        m.commit()
+    return render(request, 'signin.html')
 
 def signin(request):
     return render(request, 'signin.html')
