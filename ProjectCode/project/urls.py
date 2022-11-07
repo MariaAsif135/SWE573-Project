@@ -25,4 +25,5 @@ urlpatterns = [
     path('', playground.views.home),
     path('signin/', playground.views.signin),
     path('signup/', playground.views.signup),
+    
 ]
