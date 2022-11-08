@@ -40,7 +40,7 @@
             }
             .container{
                 padding: 50px;
-                background-color: white;
+                background-color: rgb(244, 162, 40);
             }
             .imgcontainer {
                 text-align: center;
@@ -50,13 +50,26 @@
         
         </style>
     </head>
-    <body>
-        <center><h1>Register From</h1></center>
+    {% load static %}
+    <body style="background-image: url('{% static 'images/wallpaper.jpg' %}');background-repeat:no-repeat;background-size:1800px 900px;background-position:top;background-attachment:fixed;">
+        {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+    {% endfor %}
+       
+       
+       
+       
+        <center><h1>Become a member</h1></center>
         <form action="#" method="post">
             {% csrf_token %}
            
             <center><div class="container">   
-                </div>
+                
                 <label for='first_name'><b>First Name : </b></label>
 		        <input type='text' placeholder="Enter your first name" name='first_name' required><br>
 		        <label for='last_name'><b>Last Name :</b></label>
@@ -65,8 +78,11 @@
             	<input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
             	<label for='password'><b>Password : </b></label>
             	<input type="text" placeholder="Enter Password" name="password" required><br>  
-            	<button type="submit"><b>Signup</b></button><br>     
-            	Already an accounct <a href="http://localhost:8000/playground/signin/"> Login </a>
+                <br>
+                <button type="submit"><b>Signup</b></button><br>  
+                <br>   
+            	Already have an account? <a href="http://localhost:8000/playground/signin/"> Login </a>
+            </div>
             </div></center>
         </form>
     </body>

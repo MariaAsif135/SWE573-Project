@@ -48,7 +48,7 @@
             }
             .container{
                 padding: 50px;
-                background-color: white;
+                background-color: rgb(244, 162, 40);
             }
             .imgcontainer {
                 text-align: center;
@@ -61,7 +61,9 @@
             }  
         </style>
     </head>
-    <body>
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'images/style.css' %}"> -->
+    <body style="background-image: url('{% static 'images/wallpaper.jpg' %}');background-repeat:no-repeat;background-size:1800px 900px;background-position:top;background-attachment:fixed;">
         <center><h1>Welcome!</h1></center>
         <form action="#" method="post">
             {% csrf_token %}
@@ -72,7 +74,7 @@
                 <label for='password'><b>Password : </b></label>
                 <input type="password" placeholder="Enter Password" name="password" required><br>  
                 <button type="submit"><b>Signin</b></button><br>     
-                Don't have accounct <a href="http://localhost:8000/playground/signup/"> Sign Up </a>
+                Don't have accounct <a href="http://localhost:8000/playground/signup/"> SignUp </a>
             </div></center>
         </form>
     </body>

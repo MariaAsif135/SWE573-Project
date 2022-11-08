@@ -35,7 +35,7 @@ def signup(request):
         c= "insert into users Values('{}','{}','{}','{}')".format(fname,lname,email,pass1)
         cursor.execute(c)
         m.commit()
-    return render(request, 'signup.html')
+    return render(request, 'signin.html')
 
 def signin(request):
     global email1,pass11
