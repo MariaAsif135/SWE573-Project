@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 import mysql.connector as sql
+from django.contrib.auth import authenticate
+
+
 
 fname=''
 lname=''
@@ -35,7 +38,7 @@ def signup(request):
         c= "insert into users Values('{}','{}','{}','{}')".format(fname,lname,email,pass1)
         cursor.execute(c)
         m.commit()
-    return render(request, 'signin.html')
+    return render(request, 'signup.html')
 
 def signin(request):
     global email1,pass11
@@ -49,7 +52,7 @@ def signin(request):
         cursor.execute(cc)
         t=tuple(cursor.fetchall())
         if t==():
-            return render(request, 'error.html')
+            messages.error(request, "Invalid email or password")
         else:
             return render(request, 'welcome.html')
     return render(request, 'signin.html')

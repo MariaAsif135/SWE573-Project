@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('playground/', include('playground.urls')),
     path('', playground.views.home),
-    path('signin/', playground.views.signin),
-    path('signup/', playground.views.signup),
+    # path('signin/', playground.views.signin),
+    # path('signup/', playground.views.signup),
     
 ]
