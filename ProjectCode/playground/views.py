@@ -56,3 +56,6 @@ def signin(request):
         else:
             return render(request, 'welcome.html')
     return render(request, 'signin.html')
+
+def resetpassword(request):
+    return render(request, 'resetpassword.html')
