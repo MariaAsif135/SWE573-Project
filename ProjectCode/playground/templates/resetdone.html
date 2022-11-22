@@ -1,3 +1,4 @@
+
 <!-- <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -64,24 +65,10 @@
     {% load static %}
     <!-- <link rel="stylesheet" href="{% static 'images/style.css' %}"> -->
     <body style="background-image: url('{% static 'images/wallpaper.jpg' %}');background-repeat:no-repeat;background-size:1800px 900px;background-position:top;background-attachment:fixed;">
-        <center><h2>Recovering the account</h2></center>
         
-       
-        <form action="#" method="post">
-            {% csrf_token %}
-            {% load static %}
-            <center><div class="container">
-                {% for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong>Sign In failed:</strong> {{ message }}
-        </div>
-        {% endfor %}
-                <label for ='email'><b>UserEmail : </b></label>
-                <input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
-                <br>
-                <button type="submit"><a href="http://localhost:8000/playground/resetdone/"> Send Reset Link </a></button><br>
-
-            </div></center>
-        </form>
+        
+        <center><h1> Thank you!</h1></center>
+        <center><p> You should receive an email shortly.</p></center>
+        <a href="http://localhost:8000/playground/signin"> Back </a>
     </body>
 </html>
