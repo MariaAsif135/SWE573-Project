@@ -62,3 +62,25 @@ def resetpassword(request):
 
 def resetdone(request):
     return render(request, 'resetdone.html')
+
+def myspace(request):
+    return render(request, 'myspace.html')
+
+def friendspace(request):
+    return render(request, 'friendspace.html')
+
+def chatroom(request):
+    return render(request, 'chatroom.html')
+
+def settings(request):
+    return render(request, 'settings.html')
+
+def ContactUs(request):
+    return render(request, 'ContactUs.html')
+
+def welcome(request):
+    return render(request, 'welcome.html')
+
+def upload(request):
+    return HttpResponse("upload link")
+

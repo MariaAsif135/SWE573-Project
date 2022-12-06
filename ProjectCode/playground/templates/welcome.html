@@ -1,31 +1,140 @@
 <html>
     <head>
-        <title>Welcome Page</title>
+        <title>Welcome</title>
         <style>
             body{
                 background-color: rgb(213, 229, 233);
-                color: blue;
+                color: white;
                 font-size: 30px;
             }
         </style>
     </head>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <body>
-        <p><span style="font-size:22px"><span style="color:#8e44ad"><strong>Welcome Maria!&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></span></span><span style="font-size:16px"><span style="color:#8e44ad"><strong>Followers:&nbsp; 100&nbsp; &nbsp;Following: 100</strong></span></span></p> 
+        <div id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <li><a href="http://localhost:8000/playground/welcome"><h1 id="logo">MyInfoSpace!</a></h1></li>
+                    </div>
+                    <div class="col-md-8">
+                        <ul id="menu" class="float-md-right">
+                            <li><a href="http://localhost:8000/playground/myspace">MySpace</a></li>
+                            <li><a href="http://localhost:8000/playground/friendspace">FriendsSpace</a></li>
+                            <li><a href="http://localhost:8000/playground/chatroom">Chatroom</a></li>
+                            <li><a href="http://localhost:8000/playground/settings">Settings</a></li>
+                            <li><a href="http://localhost:8000/playground/ContactUs">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="banner" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-lg-6">
+                        <div class="banner-title">
+                            <h1 class="title">Welcome to your space, </h1>
+                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt quis, architecto quasi. Iste excepturi veniam ea maxime libero officia, nesciunt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-head"><button><a href="http://localhost:8000/playground/upload"> Add New Link </a></h2></button>
+                </div>
 
-        <hr />
-        <p>&nbsp;<span style="font-size:18px"><span style="color:#8e44ad"><strong>My Space&nbsp; &nbsp;&nbsp;</strong></span></span><span style="color:#8e44ad"><span style="font-size:18px"><strong>Suggested&nbsp; &nbsp; &nbsp;</strong></span></span><span style="color:#8e44ad"><span style="font-size:18px"><strong>Friends Space&nbsp; &nbsp; &nbsp;</strong></span></span><span style="color:#8e44ad"><span style="font-size:18px"><strong>Chat Room&nbsp; &nbsp; &nbsp;</strong></span></span><span style="color:#8e44ad"><span style="font-size:18px"><strong>Settings&nbsp; &nbsp; &nbsp;Edit</strong></span></span></p>
-
-        <hr />
-        <p>&nbsp;</p>
-
-        <p>&nbsp;</p>
-
-        <p>&nbsp;</p>
-
-        <p style="text-align:center">&nbsp;</p>
-
-        <p style="text-align:center">&nbsp;</p>
-
+        <div id="news" class="container section">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="section-head">Explore</h2>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="news-post">
+                        <img src="{% static 'images/testimonial-bg.jpg' %}">
+                        <h3><a href="">Business</a></h3>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="news-post">
+                        <img src="{% static 'images/testimonial-bg.jpg' %}">
+                        {% comment %} <img src="images/post-2.jpg" alt=""> {% endcomment %}
+                        <h3><a href="">Sport</a></h3>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6  col-lg-3">
+                    <div class="news-post">
+                        <img src="{% static 'images/testimonial-bg.jpg' %}">
+                        {% comment %} <img src="images/post-3.jpg" alt=""> {% endcomment %}
+                        <h3><a href="">Entertainment</a></h3>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="news-post">
+                        <img src="{% static 'images/testimonial-bg.jpg' %}">
+                        {% comment %} <img src="images/post-4.jpg" alt=""> {% endcomment %}
+                        <h3><a href="https://www.google.com/search?q=Latest+updates+on+fashion&sxsrf=ALiCzsZ5uYXT64tZVTaz3clG87h5yL8Gsw%3A1670278633675&source=hp&ei=6W2OY5fwJryUxc8P-Z6J4Ak&iflsig=AJiK0e8AAAAAY457-dW3ugBp1o1cFj167F9jHprZJPd7&ved=0ahUKEwjXiInlwOP7AhU8SvEDHXlPApwQ4dUDCAg&uact=5&oq=Latest+updates+on+fashion&gs_lcp=Cgdnd3Mtd2l6EAMyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgUIABCGAzIFCAAQhgMyBQgAEIYDOgQIIxAnOgUIABCRAjoECAAQQzoKCC4QxwEQ0QMQQzoLCC4QgAQQxwEQ0QM6BQguEIAEOgoIABCABBCHAhAUOgUIABCABDoICC4QgAQQ1AI6CggAEAgQHhAPEA06CAgAEBYQHhAPUABYyTNgojdoAHAAeACAAa8BiAHiHJIBBDAuMjWYAQCgAQE&sclient=gws-wiz">Fashion</a></h3>
+                
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="news-post">
+                        <img src="{% static 'images/testimonial-bg.jpg' %}">
+                        {% comment %} <img src="images/post-4.jpg" alt=""> {% endcomment %}
+                        <h3><a href="">Health</a></h3>
+                
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="news-post">
+                        <img src="{% static 'images/testimonial-bg.jpg' %}">
+                        {% comment %} <img src="images/post-4.jpg" alt=""> {% endcomment %}
+                        <h3><a href="">Education</a></h3>
+                
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="news-post">
+                        <img src="{% static 'images/testimonial-bg.jpg' %}">
+                        {% comment %} <img src="images/post-4.jpg" alt=""> {% endcomment %}
+                        <h3><a href="">Politics</a></h3>
+                
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="news-post">
+                        <img src="{% static 'images/testimonial-bg.jpg' %}">
+                        {% comment %} <img src="images/post-4.jpg" alt=""> {% endcomment %}
+                        <h3><a href="">Economy</a></h3>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+      
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">copyright@2022 MyInfoSpace</div>
+                    <div class="col-md-6">
+                        <ul id="social-icons" class="float-md-right">
+                            <li><a href="" class="fa fa-facebook-square"></a></li>
+                            <li><a href="" class="fa fa-twitter-square"></a></li>
+                            <li><a href="" class="fa fa-linkedin-square"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 
 </html>
