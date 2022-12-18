@@ -4,6 +4,7 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 import mysql.connector as sql
 from django.contrib.auth import authenticate
+
 from .models import Profile
 # Create your views here.
 
@@ -43,18 +44,23 @@ def signup(request):
                 newprofile=Profile.objects.create(user=user_model, id_user=user_model.id)
                 newprofile.save()
                 user.save()
-                return redirect ('signin')
+                user_login = auth.authenticate(username=username,password=pass1)
+                auth.login(request, user_login)
+                return redirect ('settings')
 
         else: 
             messages.info(request,"Passwords donot match")
     return render(request, 'signup.html')
+def settings(request):
+    # user_profile=Profile.objects.get(user=request.user)
+    return render(request, 'setting.html')
 
 def signin(request):
     global email1,pass11
     if request.method=="POST":
         mm=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb",auth_plugin='mysql_native_password')
         cursor = mm.cursor()
-        email1 = request.POST['email']
+        email1 = request.POST['username']
         pass11 = request.POST['password']
 
         cc="select * from users where email= '{}'and password = '{}'".format(email1,pass11)
