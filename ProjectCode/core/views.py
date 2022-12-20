@@ -5,7 +5,7 @@ from django.contrib import messages
 import mysql.connector as sql
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
-from .models import Post, Profile
+from .models import Post, Profile,LikePost
 # Create your views here.
 
 username=''
@@ -93,4 +93,24 @@ def upload(request):
 
         return redirect ('/')
     else:
+        return redirect('/')
+
+
+def LikingPost(request):
+    username=request.user.username
+    post_id=request.GET.get('post_id')
+
+    post=Post.objects.get(id=post_id)
+    likingFilter=LikePost.objects.filter(post_id=post_id, username=username).first()
+
+    if likingFilter==None:
+        newlike=LikePost.objects.create(post_id=post_id, username=username)
+        newlike.save()
+        post.no_of_likes = post.no_of_likes+1
+        post.save()
+        return redirect('/')
+    else:
+        likingFilter.delete()
+        post.no_of_likes=post.no_of_likes-1
+        post.save()
         return redirect('/')
