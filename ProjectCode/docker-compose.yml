@@ -18,9 +18,7 @@ services:
       environment:
         MYSQL_DATABASE: 'django'
         MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-        MYSQL_HOST: db
-        MYSQL_PORT: 3306  # cannot change this port to other number
-        MYSQL_USER : root
+       
       ports:
         - "3306:3306"  # map port 8000 on host to port 8000 in container
       container_name: mysql_db
