@@ -6,7 +6,7 @@ WORKDIR /django
 
 ##ADD . /app
 
-COPY ./requirements.txt /app/requirements.txt
+COPY requirements.txt .
 
 RUN pip install --upgrade pip
 
