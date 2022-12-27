@@ -12,10 +12,4 @@ urlpatterns= [
     path('LikingPost', views.LikingPost, name='LikingPost'),
     path('profile/<str:pk>', views.profile, name='profile')
 
-
-
-
-
-
-
  ]
