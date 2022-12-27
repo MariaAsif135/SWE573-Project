@@ -7,14 +7,14 @@
         <title>Home Page</title>
        </head>
        {% load static %}
-    <body style="background-image: url('{% static 'images/wallpaper.jpg' %}');background-repeat:no-repeat;background-size:1800px 900px;background-position:top;background-attachment:fixed;">
-        
+    {% comment %} <body style="background-image: url('{% static 'i.jpg' %}');background-repeat:no-repeat;background-size:1800px 900px;background-position:top;background-attachment:fixed;"> {% endcomment %}
+    <body style="background-color:DeepPink" >
         <br>
         <br>
         <br>
         <br>
         <br>
-      <center><h2>Welcome to MyInfoSpace!</h2></center>
+      <center><h1 style="background-color:lightblue">Welcome to MyInfoSpace!</h1></center>
        
         <form method="post" action="/signin" class="mb-2">
             {% csrf_token %}
@@ -31,9 +31,9 @@
        <br>
        <br>
     <center>
-        <button type="submit"><a href="signin">SignIn</a></button>
+        <button type="submit"style="background-color:lightblue"  ><a href="signin" >SignIn</a></button>
         <!-- <h3> Not a member? Join Now</h3> -->
-        <button type="submit"><a href="signup">SignUp</a></button> </center>
+        <button type="submit" style="background-color:lightblue"  ><a href="signup">SignUp</a></button> </center>
       </form>
     </body>
     </html>

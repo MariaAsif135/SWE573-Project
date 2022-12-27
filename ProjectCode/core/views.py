@@ -15,6 +15,34 @@ pass2=''
 username1=''
 pass11=''
 
+
+def profile(request,pk):
+    user_object = User.objects.get(username=pk)
+    user_profile = Profile.objects.get(user=user_object)
+    user_posts = Post.objects.filter(user=pk)
+    user_post_length = len(user_posts)
+
+    follower = request.user.username
+    user = pk
+
+    # if FollowersCount.objects.filter(follower=follower, user=user).first():
+    #     button_text = 'Unfollow'
+    # else:
+    #     button_text = 'Follow'
+
+    # user_followers = len(FollowersCount.objects.filter(user=pk))
+    # user_following = len(FollowersCount.objects.filter(follower=pk))
+
+    context = {
+        'user_object': user_object,
+        'user_profile': user_profile,
+        'user_posts': user_posts,
+        'user_post_length': user_post_length,
+        # 'button_text': button_text,
+        # 'user_followers': user_followers,
+        # 'user_following': user_following,
+    }
+    return render(request, 'profile.html', context)
 # @login_required(login_url='core.signin')
 def index(request):
     user_object=User.objects.get(username=request.user.username)
@@ -51,13 +79,14 @@ def signup(request):
                 user.save()
                 user_login = auth.authenticate(username=user_model,password=pass1)
                 auth.login(request, user_login)
-                return redirect ('signin')
+                return redirect ('settings')
         else: 
-            messages.info(request,"Passwords donot match")
+            messages.info(request,"Passwords do not match")
     return render(request, 'signup.html')
+    
 def settings(request):
-    # user_profile=Profile.objects.get(user=request.user)
-    return render(request, 'setting.html')
+    user_profile= Profile.objects.get(user=request.user)
+    return render(request, 'setting.html',{'user_profile':user_profile})
 
 
 def signin(request):
@@ -67,13 +96,14 @@ def signin(request):
         cursor = mm.cursor()
         username1 = request.POST['username']
         pass11 = request.POST['password']
-
+        user = auth.authenticate(username=username1, password=pass11)
         cc="select * from users where FullName= '{}'and Password = '{}'".format(username1,pass11)
         cursor.execute(cc)
         t=tuple(cursor.fetchall())
         if t==():
             messages.info(request, "Invalid email or password")
         else:
+            auth.login(request, user)
             return render(request, 'index.html')
 
     return render(request, 'signin.html')
@@ -118,3 +148,4 @@ def LikingPost(request):
         post.no_of_likes=post.no_of_likes-1
         post.save()
         return redirect('/')
+

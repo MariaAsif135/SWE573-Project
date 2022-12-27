@@ -22,27 +22,24 @@
 <body>
 
             <header>
-                <div class="header_inner">
-                    <form action="/search" method="POST">
+                <div class="header_inner" style="background-color:DeepPink">
+                    <form action="/search" method="POST" >
                     {% csrf_token %}
                     <div class="left-side">
                         <!-- Logo -->
-                        <div id="logo" class=" uk-hidden@s">
-                            <a href="">
-                                <b><h1 style="text-transform: uppercase;">Social Book</h1></b>
-                            </a>
-                        </div>
+                        
 
                         <!--<div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
                             <i class="uil-bars"></i>
                         </div>-->
 
                         <!-- <div class="header_search"> -->
-                            <input type="text" name="username" placeholder="Search for username..">&nbsp; &nbsp;
+                            <input type="text" name="username" placeholder="Search for username.."style="background-color:black">&nbsp; &nbsp;
                             <button type="submit"><i class="fa fa-search fa-1x"></i></button>
                         <!-- </div> -->
 
                     </div>
+                    
                     </form>
                     <div class="right-side lg:pr-4">
                          <!-- upload -->
@@ -76,6 +73,7 @@
                                     
                                     </p>
                                     <div>
+                                        
                                         {% comment %} <input type="file" name="image_upload"> {% endcomment %}
                                         <!-- <a href="#" class="button soft-warning small"> Choose file</a> -->
                                         <textarea class="button soft-warning small" name="link" placeholder="Add link ..." ></textarea>
@@ -88,7 +86,7 @@
                                         uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">
                                         Or Import Video </a> -->
                                 </div>
-    
+                                
                                 
     
                             </div>
@@ -163,6 +161,14 @@
                         </div>
 
                     </div>
+                <div class="center">
+                        
+                        <a href="">
+                            <b><h1 style="text-transform: uppercase;"><a href="logout">Logout</a></h1></b>
+                        </a>
+                    
+                </div>
+
                 </div>
             </header>
 
@@ -172,7 +178,7 @@
 
                 <div class="lg:flex justify-center lg:space-x-10 lg:space-y-0 space-y-5">
 
-                    <!-- left sidebar-->
+                    
                     <div class="space-y-5 flex-shrink-0 lg:w-7/12">
 
                         <!-- post 1-->
@@ -333,12 +339,67 @@
                     <!-- right sidebar-->
                     <div class="lg:w-5/12">
                         
-                        <div class="bg-white  shadow-md rounded-md overflow-hidden">
+                        <div class="bg-white  shadow-md rounded-md overflow-hidden" style="text-align:center">
 
-                            <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 ">
-                                <h2 class="font-semibold text-lg">Users You Can Follow</h2>
+                            <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 " style="background-color:DeepPink">
+                                <h2 class="font-semibold text-lg" >Catch up with the latest updates</h2>
                                 <!-- <a href="#"> Refresh</a> -->
                             </div>
+                            
+        
+                            <div id="news" class="container section" style="text-align:center" >
+                                <div class="row">
+                                    <div class="col-md-12" style="background-color:black" >
+                                        <a href="#"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <ion-icon name="add-circle" class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Explore
+                                        </a>
+                                        <a href="#"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <ion-icon name="add-circle" class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Business
+                                        </a>
+                                        <a href="#"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <ion-icon name="add-circle" class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Sport
+                                        </a>
+                                        <a href="#"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <ion-icon name="add-circle" class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Entertainment
+                                        </a>
+                                        <a href="#"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <ion-icon name="add-circle" class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Fashion
+                                        </a>
+                                        <a href="#"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <ion-icon name="add-circle" class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Health
+                                        </a>
+                                        <a href="#"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <ion-icon name="add-circle" class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Education
+                                        </a>
+                                        <a href="#"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <ion-icon name="add-circle" class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Politics
+                                        </a>
+                                        <a href="https://www.cnbc.com/economy"
+                                        class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                                        <button name="add-circle"  class="-mb-1
+                                        mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></button> Economy
+                                        </a>
+                                        
+                                    
+                                    </div>
+                                    
+                            
                            
                             <div class="divide-gray-300 divide-gray-50 divide-opacity-50 divide-y px-4 ">
 
@@ -366,7 +427,8 @@
 
                     </div>
 
-                </div>               
+                </div> 
+                              
           
 
             </div>
