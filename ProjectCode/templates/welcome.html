@@ -1,0 +1,39 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+       </head>
+       {% load static %}
+    <body style="background-image: url('{% static 'images/wallpaper.jpg' %}');background-repeat:no-repeat;background-size:1800px 900px;background-position:top;background-attachment:fixed;">
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      <center><h2>Welcome to MyInfoSpace!</h2></center>
+       
+        <form method="post" action="/signin" class="mb-2">
+            {% csrf_token %}
+    
+      
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>  
+       <br>
+       <br>
+       <br>
+    <center>
+        <button type="submit"><a href="signin">SignIn</a></button>
+        <!-- <h3> Not a member? Join Now</h3> -->
+        <button type="submit"><a href="signup">SignUp</a></button> </center>
+      </form>
+    </body>
+    </html>
