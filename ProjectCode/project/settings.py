@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 #     }
 # }
  
-DATABASES = {
+# DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'mariadb',
@@ -100,16 +100,15 @@ DATABASES = {
     #     'HOST': 'localhost',
     #     'PORT': '3306'
     # }}
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'db',
-        'PORT': '3306'
-    }
-}
-
+DATABASES = {  
+    'default': {  
+    'ENGINE': 'django.db.backends.mysql',  
+    'NAME': 'django',  
+    'USER': 'root',  
+    'PASSWORD': '',  
+    'HOST': 'db',  
+    'PORT': '3307',  
+} }
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
