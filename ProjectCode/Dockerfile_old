@@ -1,4 +1,4 @@
-# FROM python:
+# FROM python:3.8
 
 # ENV PYTHONBUFFERED 1
 
@@ -16,7 +16,7 @@
 
 # RUN pip install -r requirements.txt
 
-FROM python:3.8-buster
+FROM python:3.8
 
 ENV PYTHONBUFFERED 1
 

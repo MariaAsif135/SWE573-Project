@@ -56,7 +56,9 @@ def index(request):
 def signup(request):
     global username, email, pass1, pass2
     if request.method == "POST":
-        m=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
+       # m=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
+        m=sql.connect(host="mysql_db", user = "root", password="", database ="django")
+
         cursor = m.cursor()
         username = request.POST['username']
         email = request.POST['email']
@@ -93,7 +95,8 @@ def settings(request):
 def signin(request):
     global username1,pass11
     if request.method=="POST":
-        mm=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
+        #mm=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
+        mm=sql.connect(host="mysql_db", user = "root", password="", database ="django")
         cursor = mm.cursor()
         username1 = request.POST['username']
         pass11 = request.POST['password']
