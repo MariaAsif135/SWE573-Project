@@ -19,7 +19,7 @@ class Profile(models.Model):
 class Post(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.CharField(max_length=100)
-    Link = models.TextField(blank=False, default='No Link')
+    Link = models.URLField(blank=False, default='No Link')
     caption = models.TextField(blank=True)
     created_at = models.DateTimeField(default=datetime.now)
     no_of_likes = models.IntegerField(default=0)

@@ -6,7 +6,8 @@ from django.contrib import messages
 import mysql.connector as sql
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
-from .models import Post, Profile,LikePost
+from .models import FollowersCount, Post, Profile,LikePost
+
 # Create your views here.
 
 username=''
@@ -26,22 +27,22 @@ def profile(request,pk):
     follower = request.user.username
     user = pk
 
-    # if FollowersCount.objects.filter(follower=follower, user=user).first():
-    #     button_text = 'Unfollow'
-    # else:
-    #     button_text = 'Follow'
+    if FollowersCount.objects.filter(follower=follower, user=user).first():
+        button_text = 'Unfollow'
+    else:
+        button_text = 'Follow'
 
-    # user_followers = len(FollowersCount.objects.filter(user=pk))
-    # user_following = len(FollowersCount.objects.filter(follower=pk))
+    user_followers = len(FollowersCount.objects.filter(user=pk))
+    user_following = len(FollowersCount.objects.filter(follower=pk))
 
     context = {
         'user_object': user_object,
         'user_profile': user_profile,
         'user_posts': user_posts,
         'user_post_length': user_post_length,
-        # 'button_text': button_text,
-        # 'user_followers': user_followers,
-        # 'user_following': user_following,
+        'button_text': button_text,
+        'user_followers': user_followers,
+        'user_following': user_following,
     }
     return render(request, 'profile.html', context)
 # @login_required(login_url='core.signin')
@@ -56,8 +57,8 @@ def index(request):
 def signup(request):
     global username, email, pass1, pass2
     if request.method == "POST":
-       # m=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
-        m=sql.connect(host="mysql_db", user = "root", password="", database ="django")
+        m=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
+        #m=sql.connect(host="mysql_db", user = "root", password="", database ="django")
 
         cursor = m.cursor()
         username = request.POST['username']
@@ -66,10 +67,10 @@ def signup(request):
         pass2 = request.POST['password2']  
         if pass1==pass2:
             if User.objects.filter(email=email).exists():
-                messages.info(request, "Email Taken")
+                messages.info(request, "Email is already taken")
                 return redirect('signup')
             elif User.objects.filter(username=username).exists():
-                messages.info(request, "Username Taken")
+                messages.info(request, "Username is already taken")
                 return redirect('signup')
             else:
                 user=User.objects.create_user(username=username, email=email,password=pass1)
@@ -88,28 +89,57 @@ def signup(request):
     return render(request, 'signup.html')
     
 def settings(request):
-    user_profile= Profile.objects.get(user=request.user)
-    return render(request, 'setting.html',{'user_profile':user_profile})
+    user_profile = Profile.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        
+        if request.FILES.get('image') == None:
+            image = user_profile.profileimg
+            bio = request.POST['bio']
+            location = request.POST['location']
+
+            user_profile.profileimg = image
+            user_profile.bio = bio
+            user_profile.location = location
+            user_profile.save()
+
+        if request.FILES.get('image') != None:
+            image = request.FILES.get('image')
+            bio = request.POST['bio']
+            location = request.POST['location']
+
+            user_profile.profileimg = image
+            user_profile.bio = bio
+            user_profile.location = location
+            user_profile.save()
+        
+        return redirect('settings')
+    return render(request, 'setting.html', {'user_profile': user_profile})
 
 
 def signin(request):
     global username1,pass11
     if request.method=="POST":
-        #mm=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
-        mm=sql.connect(host="mysql_db", user = "root", password="", database ="django")
+        mm=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
+        #mm=sql.connect(host="mysql_db", user = "root", password="", database ="django")
         cursor = mm.cursor()
         username1 = request.POST['username']
         pass11 = request.POST['password']
         user = auth.authenticate(username=username1, password=pass11)
         cc="select * from users where FullName= '{}'and Password = '{}'".format(username1,pass11)
         cursor.execute(cc)
-        t=tuple(cursor.fetchall())
-        if t==():
-            messages.info(request, "Invalid email or password")
-        else:
+        # t=tuple(cursor.fetchall())
+        # if t==():
+        #     messages.info(request, "Invalid email or password")
+        # else:
+        #     auth.login(request, user)
+        #     return render(request, 'index.html')
+        if user is not None:
             auth.login(request, user)
-            return render(request, 'index.html')
-
+            return redirect('/')
+        else:
+            messages.info(request, 'Credentials Invalid')
+            return redirect('signin')
     return render(request, 'signin.html')
 
 
@@ -136,9 +166,6 @@ def search(request):
     return render(request, 'search.html', {'user_profile': user_profile, 'username_profile_list': username_profile_list})
 
 
-
-
-
 def logout(request):
     auth.logout(request)
     return redirect('signin')
@@ -151,8 +178,9 @@ def upload(request):
         user = request.user.username
         Link = request.POST['link']
         caption = request.POST['caption']
+        created_at = request.POST['created_at']
 
-        new_post = Post.objects.create(user=user, Link=Link, caption=caption)
+        new_post = Post.objects.create(user=user, Link=Link, caption=caption, created_at=created_at)
         new_post.save()
 
 
@@ -180,3 +208,20 @@ def LikingPost(request):
         post.save()
         return redirect('/')
 
+
+
+def follow(request):
+    if request.method == 'POST':
+        follower = request.POST['follower']
+        user = request.POST['user']
+
+        if FollowersCount.objects.filter(follower=follower, user=user).first():
+            delete_follower = FollowersCount.objects.get(follower=follower, user=user)
+            delete_follower.delete()
+            return redirect('/profile/'+user)
+        else:
+            new_follower = FollowersCount.objects.create(follower=follower, user=user)
+            new_follower.save()
+            return redirect('/profile/'+user)
+    else:
+        return redirect('/')

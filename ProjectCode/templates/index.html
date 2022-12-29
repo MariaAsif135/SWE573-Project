@@ -21,159 +21,160 @@
 
 <body>
 
-            <header>
-                <div class="header_inner" style="background-color:DeepPink">
-                    <form action="/search" method="POST" >
-                    {% csrf_token %}
-                    <div class="left-side">
-                        <!-- Logo -->
-                        
+    <header>
+        <div class="header_inner" style="background-color:lightpink">
+            <form action="/search" method="POST" >
+            {% csrf_token %}
+            <div class="left-side">
+                <!-- Logo -->
+                
 
-                        <!--<div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
-                            <i class="uil-bars"></i>
-                        </div>-->
+                <!--<div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
+                    <i class="uil-bars"></i>
+                </div>-->
 
-                        <!-- <div class="header_search"> -->
-                            <input type="text" name="username" placeholder="Search for username.."style="background-color:black">&nbsp; &nbsp;
-                            <button type="submit"><i class="fa fa-search fa-1x"></i></button>
-                        <!-- </div> -->
+                <!-- <div class="header_search"> -->
+                    <input type="text" name="username" placeholder="Search for username.."style="background-color:black">&nbsp; &nbsp;
+                    <button type="submit"><i class="fa fa-search fa-1x"></i></button>
+                <!-- </div> -->
 
+            </div>
+            
+            </form>
+            <div class="right-side lg:pr-4">
+                    <!-- upload -->
+                <a href="#"
+                    class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                    <ion-icon name="add-circle" class="-mb-1
+                        mr-1 opacity-90 text-xl uilus-circle"></ion-icon>  Add New Link
+                </a>
+                    <!-- upload dropdown box -->
+                <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small" class="header_dropdown">
+
+                    <!-- notivication header -->
+                    <div class="px-4 py-3 -mx-5 -mt-4 mb-5 border-b">
+                        <h4>Upload Link</h4>
                     </div>
-                    
-                    </form>
-                    <div class="right-side lg:pr-4">
-                         <!-- upload -->
-                        <a href="#"
-                            class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
-                            <ion-icon name="add-circle" class="-mb-1
-                             mr-1 opacity-90 text-xl uilus-circle"></ion-icon>  Add New Link
-                        </a>
-                          <!-- upload dropdown box -->
-                        <div uk-dropdown="pos: top-right;mode:click ; animation: uk-animation-slide-bottom-small" class="header_dropdown">
-    
-                            <!-- notivication header -->
-                            <div class="px-4 py-3 -mx-5 -mt-4 mb-5 border-b">
-                                <h4>Upload Link</h4>
-                            </div>
-    
-                            <!-- notification contents -->
-                            <div class="flex justify-center flex-center text-center">
-    
-                                <div class="flex flex-col choose-upload text-center">
-                                   
-                                    {% comment %} <div class="bg-gray-100 border-2 border-dashed flex flex-col h-24 items-center justify-center relative w-full rounded-lg  ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-12">
-                                            <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
-                                            <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
-                                        </svg>
-                                    </div> {% endcomment %}
 
-                                    <form action="upload" method="POST" enctype="multipart/form-data" >
-                                    {% csrf_token %}
-                                    
-                                    </p>
-                                    <div>
-                                        
-                                        {% comment %} <input type="file" name="image_upload"> {% endcomment %}
-                                        <!-- <a href="#" class="button soft-warning small"> Choose file</a> -->
-                                        <textarea class="button soft-warning small" name="link" placeholder="Add link ..." ></textarea>
-                                        <textarea class="button soft-warning small" name="caption" placeholder="Add description..." ></textarea>
-                                        <br>
-                                        <button class="button bg-blue-700" type="submit" >Upload</button>
-                                    </div>
-                                    </form>
-                                    <!-- <a href="#" class="uk-text-muted mt-3 uk-link"
-                                        uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">
-                                        Or Import Video </a> -->
-                                </div>
-                                
-                                
-    
-                            </div>
+                    <!-- notification contents -->
+                    <div class="flex justify-center flex-center text-center">
+
+                        <div class="flex flex-col choose-upload text-center">
                             
+                            {% comment %} <div class="bg-gray-100 border-2 border-dashed flex flex-col h-24 items-center justify-center relative w-full rounded-lg  ">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-12">
+                                    <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
+                                    <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
+                                </svg>
+                            </div> {% endcomment %}
+
+                            <form action="upload" method="POST" enctype="multipart/form-data" >
+                            {% csrf_token %}
+                            
+                            </p>
+                            <div>
+                                
+                                {% comment %} <input type="file" name="image_upload"> {% endcomment %}
+                                <!-- <a href="#" class="button soft-warning small"> Choose file</a> -->
+                                
+                                <textarea class="button soft-warning small" name="link" placeholder="Add link ..." ></textarea>
+                                <textarea class="button soft-warning small" name="caption" placeholder="Add description..." ></textarea>
+                                <br>
+                                <button class="button bg-blue-700" type="submit" >Upload</button>
+                            </div>
+                            </form>
+                            <!-- <a href="#" class="uk-text-muted mt-3 uk-link"
+                                uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">
+                                Or Import Video </a> -->
                         </div>
                         
-                         <!-- Notification -->
-
-                        <!-- <a href="#" class="header-links-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M12 22a2.02 2.02 0 0 1-2.01-2h4a2.02 2.02 0 0 1-.15.78a2.042 2.042 0 0 1-1.44 1.18h-.047A1.922 1.922 0 0 1 12 22zm8-3H4v-2l2-1v-5.5a8.065 8.065 0 0 1 .924-4.06A4.654 4.654 0 0 1 10 4.18V2h4v2.18c2.579.614 4 2.858 4 6.32V16l2 1v2z" fill="currentColor"/></g></svg>
-                        </a>
-                        <div uk-drop="mode: click;offset: 4" class="header_dropdown">
-                            <h4
-                                class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
-                                Notification </h4>
-                            <ul class="dropdown_scrollbar" data-simplebar>
-                                <li>
-                                    <a href="#">
-                                        <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="">
-                                        </div>
-                                        <div class="drop_content">
-                                            <p> <strong class="text-link" >Taiye</strong>  
-                                                <span class="text-link"> is following you  </span>
-                                            </p>
-                                            <span class="time-ago"> 2 hours ago </span>
-                                        </div>
-                                    </a>
-                                </li>
-                                
-
-                            </ul>
-                            <a href="#" class="see-all">See all</a>
-                        </div> -->
-
-                        <!-- Messages -->
-
-                        <!-- <a href="#" class="header-links-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="0.5em" height="0.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></g></svg>
-                        </a>
-                        <div uk-drop="mode: click;offset: 4" class="header_dropdown">
-                            <h4
-                                class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
-                                Messages </h4>
-                            <ul class="dropdown_scrollbar" data-simplebar>
-                                <li>
-                                    <a href="#">
-                                        <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="">
-                                        </div>
-                                        <div class="drop_content">
-                                            <strong> Taiye </strong> <time> 6:43 PM</time>
-                                            <p> hi tomi </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                
-
-
-                            </ul>
-                            <a href="#" class="see-all">See all</a>
-                        </div> -->
-
-                        <!-- profile -->
-
-                        <a href="#">
-                            <img src="{{user_profile.profileimg.url}}" class="header-avatar" alt="">
-                        </a>
-                        <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
-                            <ul>
-                                <li><a href="/settings"> Account setting </a> </li>
-                                <li><a href="logout"> Log Out</a></li>
-                            </ul>
-                        </div>
+                        
 
                     </div>
-                <div class="center">
-                        
-                        <a href="">
-                            <b><h1 style="text-transform: uppercase;"><a href="logout">Logout</a></h1></b>
-                        </a>
                     
                 </div>
+                
+                    <!-- Notification -->
 
+                <!-- <a href="#" class="header-links-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M12 22a2.02 2.02 0 0 1-2.01-2h4a2.02 2.02 0 0 1-.15.78a2.042 2.042 0 0 1-1.44 1.18h-.047A1.922 1.922 0 0 1 12 22zm8-3H4v-2l2-1v-5.5a8.065 8.065 0 0 1 .924-4.06A4.654 4.654 0 0 1 10 4.18V2h4v2.18c2.579.614 4 2.858 4 6.32V16l2 1v2z" fill="currentColor"/></g></svg>
+                </a>
+                <div uk-drop="mode: click;offset: 4" class="header_dropdown">
+                    <h4
+                        class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
+                        Notification </h4>
+                    <ul class="dropdown_scrollbar" data-simplebar>
+                        <li>
+                            <a href="#">
+                                <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="">
+                                </div>
+                                <div class="drop_content">
+                                    <p> <strong class="text-link" >Taiye</strong>  
+                                        <span class="text-link"> is following you  </span>
+                                    </p>
+                                    <span class="time-ago"> 2 hours ago </span>
+                                </div>
+                            </a>
+                        </li>
+                        
+
+                    </ul>
+                    <a href="#" class="see-all">See all</a>
+                </div> -->
+
+                <!-- Messages -->
+
+                <!-- <a href="#" class="header-links-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="0.5em" height="0.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></g></svg>
+                </a>
+                <div uk-drop="mode: click;offset: 4" class="header_dropdown">
+                    <h4
+                        class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
+                        Messages </h4>
+                    <ul class="dropdown_scrollbar" data-simplebar>
+                        <li>
+                            <a href="#">
+                                <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="">
+                                </div>
+                                <div class="drop_content">
+                                    <strong> Taiye </strong> <time> 6:43 PM</time>
+                                    <p> hi tomi </p>
+                                </div>
+                            </a>
+                        </li>
+                        
+
+
+                    </ul>
+                    <a href="#" class="see-all">See all</a>
+                </div> -->
+
+                <!-- profile -->
+
+                <a href="#">
+                    <img src="{{user_profile.profileimg.url}}" class="header-avatar" alt="">
+                </a>
+                <div uk-drop="mode: click;offset:9" class="header_dropdown profile_dropdown border-t">
+                    <ul>
+                        <li><a href="/settings"> Account setting </a> </li>
+                        <li><a href="logout"> Log Out</a></li>
+                    </ul>
                 </div>
-            </header>
+
+            </div>
+        <div class="center">
+                
+                <a href="">
+                    <b><h1 style="text-transform: uppercase;"><a href="logout">Logout</a></h1></b>
+                </a>
+            
+        </div>
+
+        </div>
+    </header>
 
             <div class="container m-auto">
-                 <h1>Welcome {{posts.user.username}}</h1>
+                 <h1 style='font-size:40px; background-color: black; font-style:italic; font-family:georgia,garamond,serif; color:white;'  ><strong>Welcome  {{user.username}}</strong></h1>
                  <br> 
                 <!--<h1 class="lg:text-2xl text-lg font-extrabold leading-none text-gray-900 tracking-tight mb-5"> Feed </h1>--->
 
@@ -225,11 +226,8 @@
                                       <!-- <li>
                                         <hr class="-mx-2 my-2 ">
                                       </li> -->
-                                      <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md ">
-                                           <i class="uil-trash-alt mr-1"></i>  Delete Post
-                                          </a> 
-                                      </li>
+                                      
+                                      
                                     </ul>
                                 
                                 </div>
@@ -258,9 +256,12 @@
                                 </div> -->
 
                                 <p>
-                                    <a href="/profile/{{post.user}}"><strong>Link:</strong></a> <a>{{post.Link}}</a>
+                                    <a href="/profile/{{post.user}}" ><strong>Link:</strong></a> <a href="{{post.Link}}">{{post.Link}}</a>
                                     <br>
                                     <a href="/profile/{{post.user}}"><strong>Description:</strong></a> {{post.caption}}
+                                    <br>
+                                    <a href="/profile/{{post.user}}"><strong><br>
+                                    
                                 </p>
 
                                 <div class="flex space-x-4 lg:font-bold">
@@ -279,6 +280,7 @@
                                         </div>
                                         
                                     </a>
+                                    <strong>Created at: </strong></a> {{post.created_at}}</strong>
                                     <!-- <a href="#" class="flex items-center space-x-2">
                                         <div class="p-2 rounded-full text-black">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="25" height="25" class="">
@@ -342,7 +344,7 @@
                         
                         <div class="bg-white  shadow-md rounded-md overflow-hidden" style="text-align:center">
 
-                            <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 " style="background-color:DeepPink">
+                            <div class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 " style="background-color:lightpink">
                                 <h2 class="font-semibold text-lg" >Catch up with the latest updates</h2>
                                 <!-- <a href="#"> Refresh</a> -->
                             </div>

@@ -61,14 +61,14 @@
 					</div>
 				</form>
 
-				<!-- <form class="edit-phto">
+				{% comment %} <!-- <form class="edit-phto">
 					<i class="fa fa-camera-retro"></i>
 					<label class="fileContainer">
 						Upload Cover Photo
 					<input type="file"/>
 					</label>
-				</form> -->
-				<div class="container-fluid"style="background-color:blue">
+				</form> --> {% endcomment %}
+				<div class="container-fluid"style="background-color:lightblue">
 					<div class="row merged">
 						<div class="col-lg-2 col-sm-3" >
 							<div class="user-avatar">
@@ -105,30 +105,45 @@
 		</section>
 		
 	<section>
-		<div class="gap gray-bg"style="background-color:DeepPink">
-			<div class="container-fluid"style="background-color:DeepPink">
-				<div class="column"style="background-color:DeepPink">
-					<div class="col-lg-12"style="background-color:DeepPink">
-						<div class="row" id="page-contents"style="background-color:DeepPink">
+		<div class="gap gray-bg"style="background-color:lightpink">
+			<div class="container-fluid"style="background-color:lightpink">
+				<div class="column"style="background-color:lightpink">
+					<div class="col-lg-12"style="background-color:lightpink">
+						<div class="row" id="page-contents"style="background-color:lightpink">
 							<div class="col-lg-3">
 								<aside class="sidebar static">
 								</aside>
 							</div><!-- sidebar -->
 							
-							<div class="col-lg-6"style="background-color:DeepPink">
-								<div class="central-meta" style="background-color:DeepPink">
+							<div class="col-lg-6"style="background-color:lightpink">
+								<div class="central-meta" style="background-color:lightgray">
 									<ul class="photos">
-					
-										{% for post in user_posts %}
-
-											<li>
-												 
-												<a href="/profile/{{post.user}}"><strong>Link:</strong></a> <a>{{post.Link}}</a>
-												<a href="/profile/{{post.user}}"><strong>Description:</strong></a> {{post.caption}}
-												 
-                                
-											</li>
-										{% endfor %}
+										
+											{% for post in user_posts %}
+											<div class="container m-auto" style="background-color:lightpink">	
+												<li>
+																										
+													<br>
+													<a href="/profile/{{post.user}}" style='font-size:20px;  font-style:italic; font-family:georgia,garamond,serif; color:deepgray;'><strong>Link:</strong></a> <a href="{{post.Link}}" style='font-size:20px;  font-style:italic; font-family:georgia,garamond,serif; color:deepgray;'>{{post.Link}}</a>
+													<br>
+													<a href="/profile/{{post.user}}" ><strong>Description:</strong></a> {{post.caption}}
+													
+													<br>
+													<a href="/profile/{{post.user}}"><strong>Created at: </strong></a> {{post.created_at}}</strong></a>
+													<br>
+													<br>
+													<form action="/delete" method="POST" > 
+													<button href="#" class="flex items-right px-3 py-2 text-red-500 hover:bg-red-100 hover:text-red-500 rounded-md " style='color:white; background-color:gray; font-size:15px;'>
+														<strong>  Delete Post</strong>
+													
+													</button> 
+													</form>
+																						
+												</li>
+												
+											</div>
+											<br>
+											{% endfor %}
 										
 										
 										
