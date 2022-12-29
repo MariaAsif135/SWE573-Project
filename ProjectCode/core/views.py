@@ -57,8 +57,8 @@ def index(request):
 def signup(request):
     global username, email, pass1, pass2
     if request.method == "POST":
-        m=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
-        #m=sql.connect(host="mysql_db", user = "root", password="", database ="django")
+        # m=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
+        m=sql.connect(host="mysql_db", user = "root", password="", database ="django")
 
         cursor = m.cursor()
         username = request.POST['username']
@@ -74,9 +74,9 @@ def signup(request):
                 return redirect('signup')
             else:
                 user=User.objects.create_user(username=username, email=email,password=pass1)
-                c="insert into users Values('{}','{}','{}','{}')".format(username,email,pass1,pass2)
-                cursor.execute(c)
-                m.commit()
+                # c="insert into users Values('{}','{}','{}','{}')".format(username,email,pass1,pass2)
+                # cursor.execute(c)
+                # m.commit()
                 user_model=User.objects.get(username=username)
                 newprofile=Profile.objects.create(user=user_model, id_user=user_model.id)
                 newprofile.save()
@@ -120,14 +120,14 @@ def settings(request):
 def signin(request):
     global username1,pass11
     if request.method=="POST":
-        mm=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
-        #mm=sql.connect(host="mysql_db", user = "root", password="", database ="django")
+        # mm=sql.connect(host="localhost", user = "root", password="Mummy123daddy", database ="mariadb")
+        mm=sql.connect(host="mysql_db", user = "root", password="", database ="django")
         cursor = mm.cursor()
         username1 = request.POST['username']
         pass11 = request.POST['password']
         user = auth.authenticate(username=username1, password=pass11)
-        cc="select * from users where FullName= '{}'and Password = '{}'".format(username1,pass11)
-        cursor.execute(cc)
+        # cc="select * from users where FullName= '{}'and Password = '{}'".format(username1,pass11)
+        # cursor.execute(cc)
         # t=tuple(cursor.fetchall())
         # if t==():
         #     messages.info(request, "Invalid email or password")
@@ -178,9 +178,9 @@ def upload(request):
         user = request.user.username
         Link = request.POST['link']
         caption = request.POST['caption']
-        created_at = request.POST['created_at']
+        # created_at = request.POST['created_at']
 
-        new_post = Post.objects.create(user=user, Link=Link, caption=caption, created_at=created_at)
+        new_post = Post.objects.create(user=user, Link=Link, caption=caption)
         new_post.save()
 
 
