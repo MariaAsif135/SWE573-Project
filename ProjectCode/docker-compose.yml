@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/app  #
     ports:
-      - "8000:8000"  # map port 8000 on host to port 8000 in container
+      - "80:8000"  # map port 8000 on host to port 8000 in container
     image: app:latest  # tag the image as app:latest
     container_name: mylocalcontainer  # name the container as swe573_term_project
     command: >
