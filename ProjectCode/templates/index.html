@@ -29,9 +29,7 @@
                 <!-- Logo -->
                 
 
-                <!--<div class="triger" uk-toggle="target: #wrapper ; cls: sidebar-active">
-                    <i class="uil-bars"></i>
-                </div>-->
+                
 
                 <!-- <div class="header_search"> -->
                     <input type="text" name="username" placeholder="Search for username.."style="background-color:black">&nbsp; &nbsp;
@@ -83,9 +81,7 @@
                                 <button class="button bg-blue-700" type="submit" >Upload</button>
                             </div>
                             </form>
-                            <!-- <a href="#" class="uk-text-muted mt-3 uk-link"
-                                uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">
-                                Or Import Video </a> -->
+                            
                         </div>
                         
                         
@@ -94,62 +90,7 @@
                     
                 </div>
                 
-                    <!-- Notification -->
-
-                <!-- <a href="#" class="header-links-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M12 22a2.02 2.02 0 0 1-2.01-2h4a2.02 2.02 0 0 1-.15.78a2.042 2.042 0 0 1-1.44 1.18h-.047A1.922 1.922 0 0 1 12 22zm8-3H4v-2l2-1v-5.5a8.065 8.065 0 0 1 .924-4.06A4.654 4.654 0 0 1 10 4.18V2h4v2.18c2.579.614 4 2.858 4 6.32V16l2 1v2z" fill="currentColor"/></g></svg>
-                </a>
-                <div uk-drop="mode: click;offset: 4" class="header_dropdown">
-                    <h4
-                        class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
-                        Notification </h4>
-                    <ul class="dropdown_scrollbar" data-simplebar>
-                        <li>
-                            <a href="#">
-                                <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="">
-                                </div>
-                                <div class="drop_content">
-                                    <p> <strong class="text-link" >Taiye</strong>  
-                                        <span class="text-link"> is following you  </span>
-                                    </p>
-                                    <span class="time-ago"> 2 hours ago </span>
-                                </div>
-                            </a>
-                        </li>
-                        
-
-                    </ul>
-                    <a href="#" class="see-all">See all</a>
-                </div> -->
-
-                <!-- Messages -->
-
-                <!-- <a href="#" class="header-links-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="0.5em" height="0.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><g fill="currentColor"><path d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></g></svg>
-                </a>
-                <div uk-drop="mode: click;offset: 4" class="header_dropdown">
-                    <h4
-                        class="-mt-5 -mx-5 bg-gradient-to-t from-gray-100 to-gray-50 border-b font-bold px-6 py-3">
-                        Messages </h4>
-                    <ul class="dropdown_scrollbar" data-simplebar>
-                        <li>
-                            <a href="#">
-                                <div class="drop_avatar"> <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="">
-                                </div>
-                                <div class="drop_content">
-                                    <strong> Taiye </strong> <time> 6:43 PM</time>
-                                    <p> hi tomi </p>
-                                </div>
-                            </a>
-                        </li>
-                        
-
-
-                    </ul>
-                    <a href="#" class="see-all">See all</a>
-                </div> -->
-
-                <!-- profile -->
+                    
 
                 <a href="#">
                     <img src="{{user_profile.profileimg.url}}" class="header-avatar" alt="">
@@ -176,7 +117,6 @@
             <div class="container m-auto">
                  <h1 style='font-size:40px; background-color: black; font-style:italic; font-family:georgia,garamond,serif; color:white;'  ><strong>Welcome  {{user.username}}</strong></h1>
                  <br> 
-                <!--<h1 class="lg:text-2xl text-lg font-extrabold leading-none text-gray-900 tracking-tight mb-5"> Feed </h1>--->
 
                 <div class="lg:flex justify-center lg:space-x-10 lg:space-y-0 space-y-5">
 
@@ -191,11 +131,7 @@
                             <!-- post header-->
                             <div class="flex justify-between items-center px-4 py-3">
                                 <div class="flex flex-1 items-center space-x-4">
-                                    <!-- <a href="#">
-                                        <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
-                                            <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
-                                        </div>
-                                    </a> -->
+                                    
                                     <span class="block font-semibold "><a href="/profile/{{post.user}}">@{{post.user}}</a></span>
                                 </div>
                               <div>
@@ -203,29 +139,7 @@
                                 <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  " uk-drop="mode: hover;pos: top-right">
                               
                                     <ul class="space-y-1">
-                                      <!-- <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-share-alt mr-1"></i> Share
-                                          </a> 
-                                      </li> -->
-                                      <!-- <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-edit-alt mr-1"></i>  Edit Post 
-                                          </a> 
-                                      </li> -->
-                                      <!-- <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-comment-slash mr-1"></i>   Disable comments
-                                          </a> 
-                                      </li>  -->
-                                      <!-- <li> 
-                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
-                                           <i class="uil-favorite mr-1"></i>  Add favorites 
-                                          </a> 
-                                      </li> -->
-                                      <!-- <li>
-                                        <hr class="-mx-2 my-2 ">
-                                      </li> -->
+                                      
                                       
                                       
                                     </ul>
@@ -242,19 +156,8 @@
                             
     
                             <div class="py-3 px-4 space-y-3"> 
+                              
                                
-                                
-                                <!-- <div class="flex items-center space-x-3"> 
-                                    <div class="flex items-center">
-                                        <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white ">
-                                        <img src="{% static 'assets/images/avatars/avatar-4.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
-                                        <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
-                                    </div>
-                                    <div class="">
-                                        Liked <strong> taiye</strong> and <strong> 209 Others </strong>
-                                    </div>
-                                </div> -->
-
                                 <p>
                                     <a href="/profile/{{post.user}}" ><strong>Link:</strong></a> <a href="{{post.Link}}">{{post.Link}}</a>
                                     <br>
@@ -298,36 +201,6 @@
 
 
 
-                                <!-- <div class="border-t pt-4 space-y-4 ">
-                                    <div class="flex">
-                                        <div class="w-10 h-10 rounded-full relative flex-shrink-0">
-                                            <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">
-                                        </div>
-                                        <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                            <p class="leading-6">Y'all like billie eillish? <urna class="i uil-heart"></urna> <i
-                                                    class="uil-grin-tongue-wink"> </i> </p>
-                                            <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="w-10 h-10 rounded-full relative flex-shrink-0">
-                                            <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">
-                                        </div>
-                                        <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                            <p class="leading-6">She's my favourite <i class="uil-grin-tongue-wink-alt"></i>
-                                            </p>
-                                            <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
-                                        </div>
-                                    </div>
-                                </div> -->
-
-                                <!-- <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
-                                    <input type="text" placeholder="post a comment" class="bg-transparent max-h-10 shadow-none">
-                                    <div class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2">
-                                        <a href="#"> <i class="uil-image"></i></a>
-                                        <a href="#"> <i class="uil-video"></i></a>
-                                    </div>
-                                </div> -->
     
                             </div>
     
@@ -353,42 +226,42 @@
                             <div id="news" class="container section" style="text-align:center" >
                                 <div class="row">
                                     <div class="col-md-12" style="background-color:black" >
-                                        <a href="#"
+                                        <a href="https://www.euronews.com/travel/travel-series/explore"
                                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                                         <ion-icon name="add-circle" class="-mb-1
                                         mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Explore
                                         </a>
-                                        <a href="#"
+                                        <a href="https://www.cnbc.com/business/"
                                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                                         <ion-icon name="add-circle" class="-mb-1
                                         mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Business
                                         </a>
-                                        <a href="#"
+                                        <a href="https://www.bbc.com/sport"
                                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                                         <ion-icon name="add-circle" class="-mb-1
                                         mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Sport
                                         </a>
-                                        <a href="#"
+                                        <a href="https://www.eonline.com/"
                                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                                         <ion-icon name="add-circle" class="-mb-1
                                         mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Entertainment
                                         </a>
-                                        <a href="#"
+                                        <a href="https://www.vogue.com/fashion"
                                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                                         <ion-icon name="add-circle" class="-mb-1
                                         mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Fashion
                                         </a>
-                                        <a href="#"
+                                        <a href="https://edition.cnn.com/health"
                                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                                         <ion-icon name="add-circle" class="-mb-1
                                         mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Health
                                         </a>
-                                        <a href="#"
+                                        <a href="https://www.ndtv.com/education/latest-news"
                                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                                         <ion-icon name="add-circle" class="-mb-1
                                         mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Education
                                         </a>
-                                        <a href="#"
+                                        <a href="https://edition.cnn.com/politics"
                                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                                         <ion-icon name="add-circle" class="-mb-1
                                         mr-1 opacity-90 text-xl uilus-circle" style="text-align:center"></ion-icon> Politics
